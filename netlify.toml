@@ -1,0 +1,4 @@
+[build]
+  base = "art-vision-landing"
+  command = "npm install && npm run build"
+  publish = ".next"
