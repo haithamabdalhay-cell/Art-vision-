@@ -70,6 +70,9 @@ const features = [
   }
 ];
 
+const noiseTexture =
+  "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.15' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E\")";
+
 export default function FeatureCards({ isArabic }: FeatureCardsProps) {
   return (
     <section className="glass rounded-[2rem] border border-white/10 bg-slate-950/55 p-8 shadow-glass-lg">
@@ -90,7 +93,7 @@ export default function FeatureCards({ isArabic }: FeatureCardsProps) {
           return (
             <div
               key={feature.title}
-              className="relative overflow-hidden group rounded-[1.8rem] bg-slate-900/40 p-6 backdrop-blur-md border border-white/10 transition-all duration-500 hover:-translate-y-1 hover:border-cyan-500/30 hover:shadow-[0_20px_60px_rgba(34,211,238,0.18)]"
+              className="group relative overflow-hidden rounded-[1.8rem] border border-white/10 bg-slate-900/40 p-6 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-cyan-500/30 hover:shadow-[0_20px_60px_rgba(34,211,238,0.18)]"
             >
               <Image
                 src={feature.image}
@@ -102,7 +105,18 @@ export default function FeatureCards({ isArabic }: FeatureCardsProps) {
 
               <div className="absolute inset-0 z-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent" />
 
+              <div
+                className="pointer-events-none absolute inset-0 z-[5] opacity-[0.012]"
+                style={{ backgroundImage: noiseTexture, backgroundRepeat: 'repeat' }}
+              />
+
+              <div className="pointer-events-none absolute inset-0 z-[6] overflow-hidden">
+                <div className="absolute inset-y-0 left-[-120%] w-[60%] -skew-x-12 bg-[linear-gradient(to_right,transparent,rgba(255,255,255,0.08),transparent)] opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-hover:animate-card-sheen" />
+              </div>
+
               <div className="relative z-10">
+                <div className="pointer-events-none absolute inset-0 -z-10 bg-cyan-500/5 blur-3xl opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
+
                 <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-3xl bg-cyan-400/10 text-cyan-200">
                   <Icon size={24} />
                 </div>
