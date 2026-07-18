@@ -1,5 +1,7 @@
 'use client';
 
+import { withBasePath } from '@/lib/assetPath';
+
 type HeroSectionProps = {
   badge: string;
   title: string;
@@ -59,7 +61,7 @@ export default function HeroSection({
 
             <div className="relative h-[260px] overflow-hidden rounded-[1.75rem] border border-white/10 bg-slate-950/75 shadow-glow">
               <video
-                src="/logo/video.mp4"
+                src={withBasePath('/logo/video.mp4')}
                 autoPlay
                 muted
                 loop

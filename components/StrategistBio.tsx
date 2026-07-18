@@ -1,5 +1,7 @@
 'use client';
 
+import { withBasePath } from '@/lib/assetPath';
+
 type StrategistBioProps = {
   isArabic: boolean;
 };
@@ -16,7 +18,7 @@ export default function StrategistBio({ isArabic }: StrategistBioProps) {
           <div className="relative">
             <div className="relative h-64 w-64 rounded-full overflow-hidden border-2 border-cyan-400 shadow-[0_0_30px_rgba(34,211,238,0.6)]">
               <img
-                src="/logo/my_Image.png"
+                src={withBasePath('/logo/my_Image.png')}
                 alt="Haitham Abdalhay"
                 className="h-full w-full object-cover"
               />
