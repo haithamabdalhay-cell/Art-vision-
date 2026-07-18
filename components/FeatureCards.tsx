@@ -99,7 +99,7 @@ export default function FeatureCards({ isArabic }: FeatureCardsProps) {
                 src={feature.image}
                 alt={isArabic ? feature.titleAr : feature.title}
                 fill
-                className="absolute inset-0 h-full w-full object-cover opacity-40 grayscale contrast-125 transition-all duration-700 ease-out group-hover:scale-105 group-hover:opacity-60 group-hover:grayscale-0"
+                className="absolute inset-0 h-full w-full object-cover opacity-40 grayscale contrast-125 transition-all duration-700 ease-out motion-safe:group-hover:scale-105 motion-reduce:group-hover:scale-100 group-hover:opacity-60 group-hover:grayscale-0 motion-reduce:transition-none"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
 
@@ -110,12 +110,12 @@ export default function FeatureCards({ isArabic }: FeatureCardsProps) {
                 style={{ backgroundImage: noiseTexture, backgroundRepeat: 'repeat' }}
               />
 
-              <div className="pointer-events-none absolute inset-0 z-[6] overflow-hidden">
-                <div className="absolute inset-y-0 left-[-120%] w-[60%] -skew-x-12 bg-[linear-gradient(to_right,transparent,rgba(255,255,255,0.08),transparent)] opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-hover:animate-card-sheen" />
+              <div className="pointer-events-none absolute inset-0 z-[6] overflow-hidden motion-reduce:hidden">
+                <div className="absolute inset-y-0 left-[-120%] w-[60%] -skew-x-12 bg-[linear-gradient(to_right,transparent,rgba(255,255,255,0.08),transparent)] opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-hover:animate-card-sheen motion-reduce:transition-none" />
               </div>
 
               <div className="relative z-10">
-                <div className="pointer-events-none absolute inset-0 -z-10 bg-cyan-500/5 blur-3xl opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
+                <div className="pointer-events-none absolute inset-0 -z-10 bg-cyan-500/5 blur-3xl opacity-0 transition-opacity duration-700 group-hover:opacity-100 motion-reduce:transition-none" />
 
                 <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-3xl bg-cyan-400/10 text-cyan-200">
                   <Icon size={24} />
