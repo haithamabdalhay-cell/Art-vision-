@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { FiGlobe } from 'react-icons/fi';
+import { withBasePath } from '@/lib/assetPath';
 
 type HeaderProps = {
   isArabic: boolean;
@@ -24,7 +25,7 @@ export default function Header({
     <header className="relative z-20 flex flex-wrap items-center justify-between gap-4 rounded-3xl border border-white/10 bg-slate-950/50 px-6 py-5 shadow-glow">
       <div className="flex items-center gap-3">
         <div className="flex h-12 w-12 items-center justify-center rounded-3xl bg-cyan-400/10 text-cyan-200 ring-1 ring-cyan-400/20 overflow-hidden">
-          <img src="/my-logo.png" alt="Art Vision" className="h-full w-full object-cover" />
+          <img src={withBasePath('/my-logo.png')} alt="Art Vision" className="h-full w-full object-cover" />
         </div>
         <div>
           <p className="text-sm text-cyan-200/90">Art Vision</p>

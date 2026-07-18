@@ -1,5 +1,7 @@
 'use client';
 
+import { withBasePath } from '@/lib/assetPath';
+
 type ClientsMarqueeProps = {
   isArabic: boolean;
 };
@@ -61,6 +63,9 @@ const getLogoLabel = (logo: LogoItem) =>
     .replace(/[_]+/g, ' ')
     .trim();
 
+const getLogoSrc = (logo: LogoItem) =>
+  withBasePath(`/logo/${encodeURIComponent(logo.folder)}/${encodeURIComponent(logo.name)}`);
+
 export default function ClientsMarquee({ isArabic }: ClientsMarqueeProps) {
   const allLogos = [...restaurantLogos, ...companyLogos, ...carsLogos, ...forexBrokersLogos, ...watchesJewelryLogos];
 
@@ -87,7 +92,7 @@ export default function ClientsMarquee({ isArabic }: ClientsMarqueeProps) {
               <div className="flex w-full flex-col items-center gap-2 text-center">
                 <div className="flex h-16 w-full items-center justify-center rounded-xl bg-white/95 p-2">
                   <img
-                    src={`/logo/${logo.folder}/${encodeURIComponent(logo.name)}`}
+                    src={getLogoSrc(logo)}
                     alt={getLogoLabel(logo)}
                     className="max-w-full max-h-12 object-contain"
                     style={{ maxWidth: '100%', maxHeight: '48px' }}
@@ -114,7 +119,7 @@ export default function ClientsMarquee({ isArabic }: ClientsMarqueeProps) {
               className="flex flex-col items-center justify-center h-32 rounded-lg border border-white/10 bg-white/5 p-2 hover:bg-white/10 transition-colors"
             >
               <img
-                src={`/logo/${logo.folder}/${encodeURIComponent(logo.name)}`}
+                src={getLogoSrc(logo)}
                 alt={getLogoLabel(logo)}
                 className="max-w-full max-h-16 object-contain"
                 style={{ maxWidth: '100%', maxHeight: '64px' }}
@@ -139,7 +144,7 @@ export default function ClientsMarquee({ isArabic }: ClientsMarqueeProps) {
               className="flex flex-col items-center justify-center h-32 rounded-lg border border-white/10 bg-white/5 p-2 hover:bg-white/10 transition-colors"
             >
               <img
-                src={`/logo/${logo.folder}/${encodeURIComponent(logo.name)}`}
+                src={getLogoSrc(logo)}
                 alt={getLogoLabel(logo)}
                 className="max-w-full max-h-16 object-contain"
                 style={{ maxWidth: '100%', maxHeight: '64px' }}
@@ -164,7 +169,7 @@ export default function ClientsMarquee({ isArabic }: ClientsMarqueeProps) {
               className="flex flex-col items-center justify-center h-32 rounded-lg border border-white/10 bg-white/5 p-2 hover:bg-white/10 transition-colors"
             >
               <img
-                src={`/logo/${logo.folder}/${encodeURIComponent(logo.name)}`}
+                src={getLogoSrc(logo)}
                 alt={getLogoLabel(logo)}
                 className="max-w-full max-h-16 object-contain"
                 style={{ maxWidth: '100%', maxHeight: '64px' }}
@@ -189,7 +194,7 @@ export default function ClientsMarquee({ isArabic }: ClientsMarqueeProps) {
               className="flex flex-col items-center justify-center h-32 rounded-lg border border-white/10 bg-white/5 p-2 hover:bg-white/10 transition-colors"
             >
               <img
-                src={`/logo/${logo.folder}/${encodeURIComponent(logo.name)}`}
+                src={getLogoSrc(logo)}
                 alt={getLogoLabel(logo)}
                 className="max-w-full max-h-16 object-contain"
                 style={{ maxWidth: '100%', maxHeight: '64px' }}
@@ -214,7 +219,7 @@ export default function ClientsMarquee({ isArabic }: ClientsMarqueeProps) {
               className="flex flex-col items-center justify-center h-32 rounded-lg border border-white/10 bg-white/5 p-2 hover:bg-white/10 transition-colors"
             >
               <img
-                src={`/logo/${logo.folder}/${encodeURIComponent(logo.name)}`}
+                src={getLogoSrc(logo)}
                 alt={getLogoLabel(logo)}
                 className="max-w-full max-h-16 object-contain"
                 style={{ maxWidth: '100%', maxHeight: '64px' }}

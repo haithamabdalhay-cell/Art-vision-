@@ -6,6 +6,7 @@ import ClientsMarquee from '@/components/ClientsMarquee';
 import FloatingChatWidget from '@/components/FloatingChatWidget';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
+import { withBasePath } from '@/lib/assetPath';
 
 type Lang = 'en' | 'ar';
 
@@ -380,7 +381,7 @@ export default function Page() {
           <div className="flex flex-wrap items-center justify-between gap-4">
             <a href="#top" className="flex items-center gap-3">
               <span className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-2xl border border-cyan-300/25 bg-cyan-400/10">
-                <img src="/my-logo.png" alt="Art Visions brand mark" className="h-full w-full object-cover" />
+                <img src={withBasePath('/my-logo.png')} alt="Art Visions brand mark" className="h-full w-full object-cover" />
               </span>
               <span>
                 <span className="block text-sm text-cyan-100">Art Visions</span>
@@ -438,7 +439,7 @@ export default function Page() {
                 <div className="grid h-full items-center gap-6 md:grid-cols-[0.9fr_1.1fr]">
                   <div className="flex justify-center">
                     <div className="relative h-56 w-56 overflow-hidden rounded-full border-2 border-cyan-300 shadow-[0_0_28px_rgba(56,189,248,0.55)]">
-                      <img src="/logo/my_Image.png" alt="Haitham Abdalhay" className="h-full w-full object-cover" />
+                      <img src={withBasePath('/logo/my_Image.png')} alt="Haitham Abdalhay" className="h-full w-full object-cover" />
                       <div className="pointer-events-none absolute inset-0 rounded-full border border-cyan-200/20" />
                     </div>
                   </div>
