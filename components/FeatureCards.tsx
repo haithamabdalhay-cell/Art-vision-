@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { MdAnalytics, MdDesignServices, MdVideocam } from 'react-icons/md';
 
 type FeatureCardsProps = {
@@ -8,25 +9,64 @@ type FeatureCardsProps = {
 
 const features = [
   {
-    title: 'Brand Authority & Identity',
-    description: 'Crafting iconic brand identities that do not just look good, they dominate your market niche.',
-    icon: MdDesignServices,
-    titleAr: 'سلطة العلامة التجارية والهوية',
-    descriptionAr: 'صياغة هويات العلامات التجارية الأيقونية التي لا تبدو جيدة فحسب - بل تهيمن على تخصصك السوقي.'
-  },
-  {
-    title: 'Data-Driven Growth',
-    description: 'We optimize for ROI, using precise analytics to turn every dollar of your ad spend into measurable revenue.',
-    icon: MdAnalytics,
-    titleAr: 'النمو المدفوع بالبيانات',
-    descriptionAr: 'نحن نحسن للعائد على الاستثمار، باستخدام التحليلات الدقيقة لتحويل كل دولار من إنفاقك الإعلاني إلى إيراد قابل للقياس.'
-  },
-  {
-    title: 'High-Conversion Content',
-    description: 'Cinematic visuals engineered to grab attention and convert scrollers into loyal customers.',
+    title: 'Cinematic Content Production',
+    description:
+      'Cinematic visuals engineered to grab attention and convert scrollers into loyal customers.',
     icon: MdVideocam,
-    titleAr: 'محتوى عالي التحويل',
-    descriptionAr: 'رسوميات سينمائية مصممة لجذب الانتباه وتحويل المتصفحين إلى عملاء مخلصين.'
+    titleAr: 'الإنتاج السينمائي للمحتوى',
+    descriptionAr: 'مرئيات سينمائية مصممة لجذب الانتباه وتحويل المتصفحين إلى عملاء مخلصين.',
+    image:
+      'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=600'
+  },
+  {
+    title: 'Photography and Visual Direction',
+    description:
+      'Editorial-grade imagery and visual systems crafted to elevate brand presence across every customer touchpoint.',
+    icon: MdDesignServices,
+    titleAr: 'التصوير والإخراج البصري',
+    descriptionAr: 'صور تحريرية فائقة الجودة وأنظمة بصرية مصممة لرفع حضور العلامة التجارية في كل نقطة تواصل.',
+    image:
+      'https://images.unsplash.com/photo-1542038784456-1ea8e935640e?q=80&w=600'
+  },
+  {
+    title: 'Social and Performance Operations',
+    description:
+      'Data-driven social growth and performance loops designed to scale awareness, engagement, and measurable outcomes.',
+    icon: MdAnalytics,
+    titleAr: 'عمليات السوشيال والأداء',
+    descriptionAr: 'نمو اجتماعي وحلقات أداء مدفوعة بالبيانات لتوسيع الوعي والتفاعل والنتائج القابلة للقياس.',
+    image:
+      'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=600'
+  },
+  {
+    title: 'Brand Identity and Positioning',
+    description:
+      'Crafting iconic brand identities that do not just look good, they dominate your market niche.',
+    icon: MdDesignServices,
+    titleAr: 'هوية العلامة التجارية والتموضع',
+    descriptionAr: 'صياغة هويات علامات تجارية أيقونية لا تبدو جيدة فقط، بل تهيمن على تخصصك السوقي.',
+    image:
+      'https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=600'
+  },
+  {
+    title: 'Web and Automation Experience',
+    description:
+      'Elegant digital experiences with intelligent automation to streamline operations and amplify user journeys.',
+    icon: MdAnalytics,
+    titleAr: 'تجربة الويب والأتمتة',
+    descriptionAr: 'تجارب رقمية أنيقة مع أتمتة ذكية لتبسيط العمليات وتعزيز رحلات المستخدم.',
+    image:
+      'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600'
+  },
+  {
+    title: 'Launch Strategy and Advisory',
+    description:
+      'Strategic launch orchestration and advisory support to align vision, execution, and accelerated market entry.',
+    icon: MdVideocam,
+    titleAr: 'استراتيجية الإطلاق والاستشارات',
+    descriptionAr: 'تنسيق استراتيجي للإطلاق ودعم استشاري لمواءمة الرؤية والتنفيذ وتسريع دخول السوق.',
+    image:
+      'https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=600'
   }
 ];
 
@@ -44,25 +84,40 @@ export default function FeatureCards({ isArabic }: FeatureCardsProps) {
         </h2>
       </div>
 
-      <div className="grid gap-6 md:grid-cols-3">
-        {features.map((feature, index) => {
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {features.map((feature) => {
           const Icon = feature.icon;
           return (
             <div
               key={feature.title}
-              className="glass floating-panel rounded-[1.8rem] border border-white/10 p-6 transition duration-300 hover:-translate-y-1 hover:border-cyan-300/40 hover:shadow-[0_20px_60px_rgba(34,211,238,0.16)]"
+              className="relative overflow-hidden group rounded-[1.8rem] bg-slate-900/40 p-6 backdrop-blur-md border border-white/10 transition-all duration-500 hover:-translate-y-1 hover:border-cyan-500/30 hover:shadow-[0_20px_60px_rgba(34,211,238,0.18)]"
             >
-              <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-3xl bg-cyan-400/10 text-cyan-200">
-                <Icon size={24} />
-              </div>
-              <h3 className="mb-3 text-xl font-semibold text-white">
-                {isArabic ? feature.titleAr : feature.title}
-              </h3>
-              <p className="text-sm leading-6 text-slate-300">
-                {isArabic ? feature.descriptionAr : feature.description}
-              </p>
-              <div className="mt-6 rounded-2xl bg-white/5 px-3 py-2 text-xs uppercase tracking-[0.35em] text-cyan-100">
-                {isArabic ? 'متوسط +35% نمو' : 'Avg. +35% Growth'}
+              <Image
+                src={feature.image}
+                alt={isArabic ? feature.titleAr : feature.title}
+                fill
+                className="absolute inset-0 h-full w-full object-cover opacity-40 grayscale contrast-125 transition-all duration-700 ease-out group-hover:scale-105 group-hover:opacity-60 group-hover:grayscale-0"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              />
+
+              <div className="absolute inset-0 z-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent" />
+
+              <div className="relative z-10">
+                <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-3xl bg-cyan-400/10 text-cyan-200">
+                  <Icon size={24} />
+                </div>
+
+                <h3 className="mb-3 text-xl font-semibold text-white">
+                  {isArabic ? feature.titleAr : feature.title}
+                </h3>
+
+                <p className="text-sm leading-6 text-slate-200">
+                  {isArabic ? feature.descriptionAr : feature.description}
+                </p>
+
+                <div className="mt-6 rounded-2xl bg-white/5 px-3 py-2 text-xs uppercase tracking-[0.35em] text-cyan-100">
+                  {isArabic ? 'متوسط +35% نمو' : 'Avg. +35% Growth'}
+                </div>
               </div>
             </div>
           );
